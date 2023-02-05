@@ -1,0 +1,11 @@
+UserCreationForm
+{{ form|crispy }}
+{% load crispy_forms_tags %}
+ form.as_p
+
+ ----
+
+vedio =07
+
+from django.contrib.auth import views as auth_views
+from django.contrib.auth.decorators import login_required

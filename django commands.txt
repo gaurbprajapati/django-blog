@@ -1,0 +1,45 @@
+
+python -m django --version
+django-admin
+
+- python manage.py startapp {nameofproject}
+- tree :- it is command used to print the files structue of django project
+
+#command to show the sql command to create table after makemigration
+python manage.py sqlmigrate project_name 0001(filename)
+
+--python manage.py shell
+
+------------------------------------------------------------------
+
+from blog.models import Post
+from django.contrib.auth.models import User
+User.object.all() #to print list of  all user
+User.object.first() or User.object.all()[0]
+User.objects.filter(username='varu')
+User.objects.filter(username='varu').first()
+
+#store user in variable 
+ user = User.objects.filter(username='varu').first()
+user.id # get the id of the user
+user.pk #get the primary key of user
+
+------------------------------------
+Post.objects.all() #to get the all post that is created 
+
+#creating first post object
+post_1 = Post(title='blog 1' , content = 'First Post Content !' ,auther=user)
+
+#Now we created a post_1 object , now we need to save the post in the database
+
+post_1.save() #command to save post in database
+
+Post.objects.all() #to get queary set of post
+
+ post = Post.objects.first() #storing first post in object
+
+post.content #access the first post content 
+post.auther.email # to get email of auther
+
+user.post_set.all() #to get all post writen by user
+user.post_set.create(title="blog 3",content="blog 3") # to create post directly

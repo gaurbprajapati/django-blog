@@ -8,3 +8,8 @@ class Post(models.Model):
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     auther = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    # deneder/magic/special method :- str method user to show the data in
+
+    def __str__(self) -> str:
+        return self.title
