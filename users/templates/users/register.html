@@ -1,10 +1,29 @@
 {% extends "blog/base.html" %} {% load crispy_forms_tags %} {% block content %}
 <div class="content-section">
-  <form method="POST">
+  <form method="POST" novalidate  >   
+    {% comment %} or --> without useing novalidate {% endcomment %}
+  {% comment %} <form method="POST"  >    {% endcomment %}
+
     {% csrf_token %}
     <fieldset class="form-group">
       <legend class="border-bottom mb-4">Join Today</legend>
-      {% comment %} {{ form.as_p}} {% endcomment %} {{ form|crispy }}
+      {% comment %} {{ form.as_p}}  {% endcomment %}
+
+
+      {{ form|crispy }}
+
+
+      {% comment %} ------------------- {% endcomment %}
+{% comment %}
+      {% for fm  in  form %}
+      {{fm.label_tag}} {{fm}}  {{fm.errors| striptags}}
+      {% endfor %} 
+
+{% endcomment %}
+
+      {% comment %} ------------ {% endcomment %}
+
+      
     </fieldset>
     <div class="form-group">
       <button class="btn btn-outline-info" type="submit">Sign Up</button>

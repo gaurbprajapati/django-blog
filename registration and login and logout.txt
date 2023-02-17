@@ -1,11 +1,37 @@
+
+process=06
+registration --
+
 UserCreationForm
 {{ form|crispy }}
 {% load crispy_forms_tags %}
  form.as_p
 
+ 
+{% for fm  in  form %}
+{{fm.label_tag}} {{fm}}  {{fm.errors| striptags}}
+{% endfor %}
+
  ----
 
-vedio =07
+process =07
+login , logout 
 
+use of :- from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.decorators import login_required
+
+----
+
+process = 08
+Python lib. Pillow
+user profile and picture 
+commands::-
+
+import django.contrib.auth.models import User
+
+user= User.objects.filter(username = "varu").first()
+uesr.profile
+user.profile.image
+user.profile.image.width
+user.profile.image.url #to get the address/location of image
